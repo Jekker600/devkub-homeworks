@@ -8,9 +8,17 @@ Vagrant.configure("2") do |config|
           vb.cpus = 2
       end
     end
-      config.vm.define "work_nodes_1" do |node|
+      config.vm.define "work1" do |node|
         node.vm.hostname = "work.nodes.1"
         node.vm.network "public_network", ip: "192.168.1.121"
+        node.vm.provider "virtualbox" do |vb|
+            vb.memory = 2048
+            vb.cpus = 1
+        end
+      end
+      config.vm.define "work2" do |node|
+        node.vm.hostname = "work.nodes.2"
+        node.vm.network "public_network", ip: "192.168.1.122"
         node.vm.provider "virtualbox" do |vb|
             vb.memory = 2048
             vb.cpus = 1
